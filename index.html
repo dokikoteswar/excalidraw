@@ -12,28 +12,44 @@
 </head>
 
 <body>
-     <div id="root">
+    <div id="root">
         <div id="top">
-            <button class="material-icons menu btn">menu</button>
-            <div class="options">
-                <button class="btn material-icons" id="pencil">edit</button>
-                <button class="btn material-symbols-outlined">brightness_1</button>
-                <button class="btn material-symbols-outlined">check_box_outline_blank</button>
-                <button class="btn material-symbols-outlined">ink_eraser</button>
-                <input type="color" id="color-picker">
+            <button class="material-icons menu btn" onclick="toggleMenu()">menu</button>
+            <div class="options" id="activebuttons">
+                <button class="btn material-icons" id="freehand" onclick="onActionClick(this)">edit</button>
+                <button class="btn material-symbols-outlined  " id="circle"
+                    onclick="onActionClick(this)">brightness_1</button>
+                <button class="btn material-symbols-outlined  " id="rectangle"
+                    onclick="onActionClick(this)">check_box_outline_blank</button>
+                <button  class="btn material-symbols-outlined" id="line" onclick="onActionClick(this)">
+                    pen_size_2
+                </button>
+                <button class="btn material-symbols-outlined" id="eraser"
+                    onclick="onActionClick(this)">ink_eraser</button>
+                
             </div>
             <div></div>
         </div>
         <canvas id="canvas"></canvas>
         <div id="bottom">
             <div class="options">
-                <button class="btn material-icons">undo</button>
-                <button class="btn material-icons">redo</button>
+                <button class="btn material-icons" id="undo">undo</button>
+                <button class="btn material-icons" id="redo">redo</button>
             </div>
         </div>
-     </div>
-     <script src="./script.js"></script>
-     <script src="./main.js"></script>
+        <div class="form hide">
+            <label for="storkewidth">Stroke Width</label>
+            <input type="range" name="strokewidth" id="strokewidth" min="2" max="10" onclick="onInput(this)">
+            <label for="strokestyle">Pic a Color</label>
+            <input type="color" name="strokestyle" id="strokestyle" onclick="onInput(this)">
+            <!-- <label for="opacity">opacity</label>
+            <input type="number" name="opacity" min="0.1" max="1" onclick="onInput(this)"> -->
+        </div>
+    </div>
+    <!-- <script src="./script.js"></script> -->
+    <!-- <script src="./main.js"></script> -->
+    <script src="./state.js"></script>
+    <script src="./drawpart.js"></script>
 </body>
 
 </html>
